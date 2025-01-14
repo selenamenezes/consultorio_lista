@@ -73,14 +73,14 @@ def remover_paciente(registro, cpf):
     
     # verifica se tem registro
     if registro:
-        # Procura o paciente pelo CPF
+        # procura o paciente pelo cpf
         for i, paciente in enumerate(registro):
-            # Se o CPF for encontrado
+            # se o cpf for encontrado
             if paciente[2] == cpf_formatado:
                 # remove o paciente da lista usando o indice
                 del registro[i]
                 print(f"Paciente com o CPF {cpf_formatado} foi removido.")
-                return  # encerra a funcao
+                return 
         print("Paciente não encontrado.")
     else:
         print("Não há pacientes cadastrados.")
@@ -103,9 +103,6 @@ def alterar_paciente(registro, cpf, nome, data_nasc, telefone):
                 paciente[3] = data_nasc
                 paciente[4] = novo_tel 
                 print(f"Dados do paciente {paciente[0]} atualizados.") # mostra o id do paciente alterado
-                return  # encerra a função
-        
-        print("Paciente não encontrado.")
         return
     else:
         print("Não há pacientes cadastrados.")  
