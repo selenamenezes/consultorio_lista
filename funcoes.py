@@ -98,14 +98,14 @@ def alterar_paciente(registro, cpf, nome, data_nasc, telefone):
     if registro:
         # procura o paciente pelo cpf
         for paciente in registro:
-
             if paciente[2] == cpf_formatado:   
                 paciente[1] = nome
                 paciente[3] = data_nasc
                 paciente[4] = novo_tel 
                 print(f"Dados do paciente {paciente[0]} atualizados.") # mostra o id do paciente alterado
                 return  # encerra a função
-            else:
-                print("Paciente não encontrado.")
+        
+        print("Paciente não encontrado.")
+        return
     else:
         print("Não há pacientes cadastrados.")  
