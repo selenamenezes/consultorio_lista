@@ -14,7 +14,7 @@ def main():
             cpf = input("CPF: ")
             data_nasc = input("Data de nascimento: ")
             telefone = input("Telefone: ")
-            registro = cadastrar_paciente(registro, nome, cpf, data_nasc, telefone)
+            cadastrar_paciente(registro, nome, cpf, data_nasc, telefone)
 
         elif op == 2:
             print("\n")

@@ -23,11 +23,17 @@ def formatar_telefone(telefone):
         return f"({telefone[:2]}) {telefone[2:7]}-{telefone[7:]}"
     elif len(telefone) == 10:
         return f"({telefone[:2]}) {telefone[2:6]}-{telefone[6:]}"
+    else:
+        return "Telefone inválido"
     
 def cadastrar_paciente(registro, nome, cpf, data_nasc, telefone):
 
     cpf_formatado = formatar_cpf(cpf)
     telefone_formatado = formatar_telefone(telefone)
+
+    if cpf_formatado == "CPF inválido" or telefone_formatado == "Telefone inválido":
+        print("Erro ao cadastrar o paciente, CPF ou telefone inválido!")
+        return
 
     # verifica se ja tem algum cadastro c o cpf ou telefone passado
     for paciente in registro:
@@ -60,6 +66,11 @@ def pacientes_cadastrados(registro):
 def remover_paciente(registro, cpf):
 
     cpf_formatado = formatar_cpf(cpf)
+
+    if cpf_formatado == "CPF inválido":
+        print("Erro ao remover o paciente, CPF inválido.")
+        return
+    
     # verifica se tem registro
     if registro:
         # Procura o paciente pelo CPF
@@ -78,6 +89,11 @@ def remover_paciente(registro, cpf):
 def alterar_paciente(registro, cpf, nome, data_nasc, telefone):
     cpf_formatado = formatar_cpf(cpf)
     novo_tel = formatar_telefone(telefone)
+
+    if cpf_formatado == "CPF inválido" or novo_tel == "Telefone inválido":
+        print("Erro ao tentar atualizar os dados do paciente, CPF ou telefone inválido!")
+        return
+
     # verifica se tem registros
     if registro:
         # procura o paciente pelo cpf
